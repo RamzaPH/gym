@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Sign Up - Personalize Fitness Guide</title>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
+  <link rel="stylesheet" href="./login-signup.css">
+</head>
+<body>
+  <div class="auth-container">
+    <!-- Login Form -->
+    <div id="login-form">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="mb-3">
+          <label for="login-email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="login-email" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-3">
+          <label for="login-password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="login-password" placeholder="Enter your password" required>
+          <input type="checkbox" id="toggle-login-password" onclick="togglePassword('login-password')"> Show Password
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+      <div class="form-toggle">
+        <p>Don't have an account? <button type="button" onclick="toggleForm()">Sign Up</button></p>
+      </div>
+    </div>
+
+    <!-- Sign Up Form -->
+    <div id="signup-form" style="display: none;">
+      <h2>Sign Up</h2>
+      <form id="signupForm">
+        <div class="mb-3">
+          <label for="signup-email" class="form-label">Email</label>
+          <input type="email" class="form-control" id="signup-email" placeholder="Enter your email" required>
+        </div>
+        <div class="mb-3">
+          <label for="signup-password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="signup-password" placeholder="Create a password" required>
+          <input type="checkbox" id="toggle-signup-password" onclick="togglePassword('signup-password')"> Show Password
+        </div>
+        <div class="mb-3">
+          <label for="signup-confirm-password" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="signup-confirm-password" placeholder="Confirm your password" required>
+          <input type="checkbox" id="toggle-signup-confirm-password" onclick="togglePassword('signup-confirm-password')"> Show Password
+        </div>
+        <button type="submit" class="btn btn-success w-100">Sign Up</button>
+      </form>
+      <div class="form-toggle">
+        <p>Already have an account? <button type="button" onclick="toggleForm()">Login</button></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle between login and sign-up forms
+    function toggleForm() {
+      const loginForm = document.getElementById('login-form');
+      const signupForm = document.getElementById('signup-form');
+      if (loginForm.style.display === 'none') {
+        loginForm.style.display = 'block';
+        signupForm.style.display = 'none';
+      } else {
+        loginForm.style.display = 'none';
+        signupForm.style.display = 'block';
+      }
+    }
+
+    // Handle login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+
+      // Replace this with actual login logic
+      if (email === 'user@test.com' && password === 'password123') {
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('Invalid email or password');
+      }
+    });
+
+    // Handle sign-up form submission
+    document.getElementById('signupForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const email = document.getElementById('signup-email').value;
+      const password = document.getElementById('signup-password').value;
+      const confirmPassword = document.getElementById('signup-confirm-password').value;
+
+      if (password === confirmPassword) {
+        // Replace this with actual sign-up logic
+        alert('Sign-up successful! Please log in.');
+        toggleForm(); // Switch to login form after successful sign-up
+      } else {
+        alert('Passwords do not match');
+      }
+    });
+
+    // Toggle password visibility
+    function togglePassword(fieldId) {
+      const field = document.getElementById(fieldId);
+      if (field.type === 'password') {
+        field.type = 'text';
+      } else {
+        field.type = 'password';
+      }
+    }
+  </script>
+</body>
+</html>
