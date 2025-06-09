@@ -1,0 +1,86 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.hero-section {
+    background: url('./bg.png') no-repeat center center;
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+.hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 10px;
+}
+.hero-section p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    color: black;
+    background-color:rgba(255, 255, 255, 0.7);
+    display: inline-block;
+    padding: 10px;
+}
+.features-section {
+    padding: 60px 0;
+}
+.feature {
+    text-align: center;
+    padding: 20px;
+}
+.feature i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+.testimonials-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+.testimonial {
+    text-align: center;
+    padding: 20px;
+}
+.testimonial img {
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+.footer {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.2rem;
+    }
+
+    .feature i {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 80px 10px;
+    }
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .feature i {
+        font-size: 2rem;
+    }
+}
